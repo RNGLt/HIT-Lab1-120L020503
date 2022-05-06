@@ -34,9 +34,8 @@ public class FriendshipGraphTest {
         G.addVertex(b);
         G.addVertex(c);
         G.addEdge(a, b);
-        G.addEdge(b, a);
         assertEquals(true, G.getL().get(G.getMap().get(a)).contains(b));
-        assertEquals(true, G.getL().get(G.getMap().get(b)).contains(a));
+        assertEquals(false, G.getL().get(G.getMap().get(b)).contains(a));
         assertEquals(false, G.getL().get(G.getMap().get(a)).contains(c));
     }
 

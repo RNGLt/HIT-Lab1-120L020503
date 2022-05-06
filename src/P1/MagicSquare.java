@@ -27,7 +27,7 @@ public class MagicSquare {
             int row = 0, col = n / 2, i, j, square = n * n;
             for (i = 1; i <= square; i++) {
                 magic[row][col] = i;
-                if (i % n == 0)
+                if (i % n == 0)//换行
                     row++;
                 else {
                     if (row == 0)
@@ -40,6 +40,15 @@ public class MagicSquare {
                         col++;
                 }
             }
+             /*
+            先将1赋值最上行的中间位置
+            向右上角斜行，依次填入数字
+            如果右上方向出了上边界，就以出框后的虚拟方格位置为基准，将数字竖直降落至底行对应的格子中
+            同上，向右出了边界，就以出框后的虚拟方格位置为基准，将数字平移至最左列对应的格子中
+            如果数字{N} 右上的格子已被其它数字占领，就将{N+1} 填写在{N}下面的格子中
+            如果朝右上角出界，和“重复”的情况做同样处理
+            即罗伯法构造幻方
+             */
             for (i = 0; i < n; i++) {
                 for (j = 0; j < n; j++) {
                     String s = String.valueOf(magic[i][j]);
