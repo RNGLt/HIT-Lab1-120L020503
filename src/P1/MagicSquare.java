@@ -45,8 +45,10 @@ public class MagicSquare {
                     String s = String.valueOf(magic[i][j]);
                     br.write(s);
                     br.write('\t');
+                    System.out.print(magic[i][j] + "\t");
                 }
                 br.newLine();
+                System.out.println();
             }
             return true;
         } catch (ArrayIndexOutOfBoundsException e) {
